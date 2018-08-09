@@ -9,7 +9,8 @@ monitoring::monitoring(int pin)
 
 float monitoring::readCT()
 {
-	return analogRead(CTPin)*currentFactor;
+  //int value = analogRead(A0);
+	//return value/**currentFactor*/;
 }
 
 float monitoring::calculatePower(float current)

@@ -5,6 +5,7 @@
 class switching {
 private:
 	bool state;
+  int relayPin;
 
 public:
 	void setState(bool);

@@ -5,6 +5,10 @@
 
 class communication
 {
+
+  private:
+  SoftwareSerial esp8266(10, 11); //rx,tx
+  
 public:
 	communication();
 
@@ -12,7 +16,7 @@ public:
 	int connectToServer();
 	int sendData();
 
-private:
+
 
 };
 

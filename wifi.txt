@@ -1,4 +1,0 @@
-baud 115200, Both NL and CR
-AT+CWMODE_CUR=1
-AT+CWJAP_CUR="OPTUS_63B07D","entervatic65647"
-AT+CIPSTART="TCP","api.thingspeak.com",80
