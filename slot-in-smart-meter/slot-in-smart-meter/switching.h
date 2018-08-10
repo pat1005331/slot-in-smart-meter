@@ -11,4 +11,4 @@ public:
 	void setState(bool);
 	bool getState();
 	switching(int);
-};
+}switc;

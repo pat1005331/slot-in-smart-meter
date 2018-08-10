@@ -113,7 +113,7 @@
   <ItemGroup>
     <ClCompile Include="communication.cpp" />
     <ClCompile Include="monitoring.cpp" />
-    <ClCompile Include="slot-in-smart-meter.cpp" />
+    <ClCompile Include="slot-in-smart-meter.ino" />
     <ClCompile Include="storage.cpp" />
     <ClCompile Include="switching.cpp" />
   </ItemGroup>

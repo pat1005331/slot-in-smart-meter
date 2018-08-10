@@ -4,9 +4,7 @@
 #include "monitoring.h"
 #include "switching.h"
 
-communication comms;
-//monitoring monitoring(A0);
-//switching switching(4);
+
 
 void setup() {
   Serial.begin(9600);
