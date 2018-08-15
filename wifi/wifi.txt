@@ -1,0 +1,9 @@
+https://thingspeak.com/channels/556580/private_show
+
+
+baud 115200, Both NL and CR
+AT+CWMODE_CUR=3
+AT+CWJAP_CUR="OPTUS_63B07D","entervatic65647"
+AT+CIPSTART="TCP","api.thingspeak.com",80
+AT+CIPSEND=52
+GET /update?api_key=54EP6VAFSMRGSPCG&field1=2 \r\n
