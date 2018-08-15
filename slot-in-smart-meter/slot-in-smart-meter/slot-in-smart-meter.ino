@@ -9,8 +9,7 @@ communication comms;
 
 void setup() {
 	Serial.begin(115200);
-	Serial.println("hi2");
-	Serial.print("AT+CWJAP_CUR=\"OPTUS_63B07D\",\"entervatic65647\"");
+	Serial.println("hi");
 	comms.connectToNetwork();
 	Serial.println("connectToNetwork");
 }
@@ -20,7 +19,7 @@ void setup() {
 void loop() {
 	comms.connectToServer();
 	Serial.println("connectToServer");
-	comms.sendData();
+	comms.sendData(9);
 	Serial.println("send");
 	delay(5000);
 }

@@ -16,7 +16,7 @@ public:
 
 	int connectToNetwork();
 	int connectToServer();
-	int sendData();
+	int sendData(int);
 
 
 
