@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MONITORING_H
+#define MONITORING_H
 
 #include "config.h"
 
@@ -16,3 +17,5 @@ private:
 	int currentFactor;
 };
 
+
+#endif

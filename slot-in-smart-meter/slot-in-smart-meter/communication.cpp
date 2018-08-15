@@ -3,12 +3,11 @@
 #include "communication.h"
 
 
-communication::communication()
+communication::communication() : esp8266(10, 11)
 {
-
+	
 	esp8266.begin(115200);
 	esp8266.println("AT+CWMODE_CUR=3");
-	Serial.println("constructor");
 }
 
 int communication::connectToNetwork()
