@@ -8,11 +8,11 @@ communication comms;
 
 
 void setup() {
-	Serial.begin(9600);
-	Serial.print("hi");
+	Serial.begin(115200);
+	Serial.println("hi2");
+	Serial.print("AT+CWJAP_CUR=\"OPTUS_63B07D\",\"entervatic65647\"");
 	comms.connectToNetwork();
 	Serial.println("connectToNetwork");
-	
 }
 
 
