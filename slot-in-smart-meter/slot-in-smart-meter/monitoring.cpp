@@ -5,6 +5,7 @@
 monitoring::monitoring(int pin)
 {
 	CTPin = pin;
+	pinMode(CTPin, INPUT);
 }
 
 float monitoring::readCT()

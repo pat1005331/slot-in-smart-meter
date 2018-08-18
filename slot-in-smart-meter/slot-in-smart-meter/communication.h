@@ -3,6 +3,7 @@
 
 #include "config.h"
 #include <SoftwareSerial.h>
+#include "Arduino.h"
 
 class communication
 {

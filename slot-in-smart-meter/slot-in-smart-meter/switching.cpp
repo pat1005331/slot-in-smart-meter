@@ -2,11 +2,11 @@
 #include "config.h"
 #include "switching.h"
 
-void switching::setState(bool _state)
+
+void switching::setState(bool _state)	//set the state of the switch, 0 = off 1 = on
 {
-	//state = _state;
-	//if (state == 1) digitalWrite(relayPin, 1);	//open the relay
-	//else digitalWrite(relayPin, 0);				//close the relay
+	state = _state;
+	digitalWrite(relayPin, state);
 }
 
 bool switching::getState()
@@ -14,7 +14,8 @@ bool switching::getState()
 	return state;
 }
 
-switching::switching(int relayPin)
+switching::switching(int relayPin)	//connect the relay transistor to relayPin so that LOW = closed switch
 {
-	//pinMode(relayPin, OUTPUT);
+	pinMode(relayPin, OUTPUT);
+	digitalWrite(relayPin, state); //set the state of the switch to the current state
 }
