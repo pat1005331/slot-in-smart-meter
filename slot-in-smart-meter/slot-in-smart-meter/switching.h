@@ -2,10 +2,11 @@
 #define SWITCHING_H
 
 #include "config.h"
+#include "Arduino.h"
 
 class switching {
 private:
-	bool state;
+	bool state = 0;
 	int relayPin;
 
 public:

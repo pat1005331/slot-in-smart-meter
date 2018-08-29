@@ -1,7 +1,7 @@
 
 #include "config.h"
 #include "communication.h"
-#include "Arduino.h"
+
 #include <string.h>
 
 

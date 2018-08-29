@@ -3,8 +3,11 @@
 #include "communication.h"
 #include "monitoring.h"
 #include "switching.h"
+#include "storage.h"
 
 communication comms;
+switching the_switch(12);	//connect relay transistor to pin 12
+monitoring monitor(11);
 
 
 void setup() {
