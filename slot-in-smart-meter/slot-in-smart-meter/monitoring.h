@@ -19,7 +19,7 @@ public:
 private:
 	
 	int CTPin;
-	int scaleFactor = 10;
+	int scaleFactor = 27.76;
 	
 	int voltage = 240;
 };

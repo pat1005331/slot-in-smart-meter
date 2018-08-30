@@ -30,7 +30,7 @@ void loop() {
 	*/
 
 	comms.connectToServer();
-	Serial.println("connectToServer");
+	//Serial.println("connectToServer");
 	//comms.sendData(9);
 	//Serial.println("send");
 
@@ -59,9 +59,9 @@ void loop() {
 		
 	}
 
-	Serial.print("The switch is ");
-	Serial.println(the_switch.getState());
-	Serial.print("The current power consumption is ");
+	//Serial.print("The switch is ");
+	//Serial.println(the_switch.getState());
+	//Serial.print("The current power consumption is ");
 	Serial.println(monitor.calculatePower());
-	delay(5000);
+	delay(1000);
 }
