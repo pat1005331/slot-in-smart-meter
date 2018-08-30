@@ -14,14 +14,13 @@ class monitoring
 {
 public:
 	monitoring(int);
-	
+	float calculatePower();
 
 private:
 	
 	int CTPin;
-	int scaleFactor;
-	float calculatePower();
-
+	int scaleFactor = 10;
+	
 	int voltage = 240;
 };
 

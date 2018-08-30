@@ -3,13 +3,14 @@
 #include "switching.h"
 
 
-void switching::setState(bool _state)	//set the state of the switch, 0 = off 1 = on
+void switching::setState(int _state)	//set the state of the switch, 0 = off 1 = on
 {
 	state = _state;
-	digitalWrite(relayPin, state);
+	if (state = 0) digitalWrite(relayPin, HIGH);
+	else digitalWrite(relayPin, LOW);
 }
 
-bool switching::getState()
+int switching::getState()
 {
 	return state;
 }
@@ -17,5 +18,5 @@ bool switching::getState()
 switching::switching(int relayPin)	//connect the relay transistor to relayPin so that LOW = closed switch
 {
 	pinMode(relayPin, OUTPUT);
-	digitalWrite(relayPin, state); //set the state of the switch to the current state
+	digitalWrite(relayPin, LOW); //set the state of the switch to the current state
 }
