@@ -6,8 +6,8 @@
 void switching::setState(int _state)	//set the state of the switch, 0 = off 1 = on
 {
 	state = _state;
-	if (state = 0) digitalWrite(relayPin, HIGH);
-	else digitalWrite(relayPin, LOW);
+	if (state = 0) digitalWrite(relayPin, LOW);
+	else digitalWrite(relayPin, HIGH);
 }
 
 int switching::getState()

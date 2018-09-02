@@ -8,6 +8,7 @@ class switching {
 private:
 	
 	int relayPin;
+	
 
 public:
 	int state = 0;

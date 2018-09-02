@@ -6,10 +6,11 @@
 #include "storage.h"
 
 communication comms;
-switching the_switch(13);	//connect relay to pin A1
+//switching the_switch(13);	//connect relay to pin A1
 monitoring monitor(A0);
 
-char inputCommand;
+byte inputCommand;
+int relayPin = 13;
 
 
 void setup() {
@@ -29,39 +30,30 @@ void loop() {
 	
 	*/
 
-	comms.connectToServer();
+	//comms.connectToServer();
 	//Serial.println("connectToServer");
 	//comms.sendData(9);
 	//Serial.println("send");
 
-	if (Serial.available()) {
-		int inputCommand = Serial.read(); 
-		Serial.println(inputCommand);
-	}
 
-	if (the_switch.state == 1) {
-		the_switch.state = 0;
-		digitalWrite(13, HIGH);
-	}
-	else {
-		the_switch.state = 1;
-		digitalWrite(13, LOW);
+	if (Serial.available()) {
+		inputCommand = Serial.read(); 
+		Serial.write(inputCommand);
+
+		if (inputCommand == 49) {
+			digitalWrite(relayPin, HIGH);
+
+		}
+		else if (inputCommand == 48) {
+			digitalWrite(relayPin, LOW);
+
+		}
 	}
 	
-	if (inputCommand == 49) {
-		Serial.println("on");
-		the_switch.setState(1);
-		
-	}
-	if (inputCommand == 48) {
-		Serial.println("off");
-		the_switch.setState(0);
-		
-	}
+	
 
 	//Serial.print("The switch is ");
 	//Serial.println(the_switch.getState());
 	//Serial.print("The current power consumption is ");
-	Serial.println(monitor.calculatePower());
-	delay(1000);
+	//Serial.println(monitor.calculatePower());
 }
