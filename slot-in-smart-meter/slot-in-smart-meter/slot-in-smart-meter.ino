@@ -10,36 +10,36 @@ communication comms;
 monitoring monitor(A0);
 
 byte inputCommand;
-int relayPin = 13;
+int relayPin = 12;
+unsigned long previousMillis = 0;
+const long interval = 1000;
 
 
 void setup() {
 	Serial.begin(115200);
-	Serial.println("hi");
 	comms.connectToNetwork();
-	Serial.println("connectToNetwork");
+	digitalWrite(relayPin, HIGH);
 }
 
 
 
 void loop() {
 	/*
-	every 5 seconds:
+	every 1 seconds:
 	monitor and log power
 	read 
 	
 	*/
+	unsigned long currentMillis = millis();
 
-	//comms.connectToServer();
-	//Serial.println("connectToServer");
-	//comms.sendData(9);
-	//Serial.println("send");
+	if (currentMillis - previousMillis >= interval) {
+		previousMillis = currentMillis;
 
+		comms.connectToServer();
+		comms.sendData(90);
+		inputCommand = comms.sendData(monitor.calculatePower());
 
-	if (Serial.available()) {
-		inputCommand = Serial.read(); 
-		Serial.write(inputCommand);
-
+		//Set the state of the switch based on the command
 		if (inputCommand == 49) {
 			digitalWrite(relayPin, HIGH);
 
@@ -48,12 +48,19 @@ void loop() {
 			digitalWrite(relayPin, LOW);
 
 		}
-	}
-	
-	
 
-	//Serial.print("The switch is ");
-	//Serial.println(the_switch.getState());
-	//Serial.print("The current power consumption is ");
-	//Serial.println(monitor.calculatePower());
+		/*if (Serial.available()) {
+			inputCommand = Serial.read();
+			Serial.write(inputCommand);
+
+			if (inputCommand == 49) {
+				digitalWrite(relayPin, HIGH);
+
+			}
+			else if (inputCommand == 48) {
+				digitalWrite(relayPin, LOW);
+
+			}
+		}*/
+	}
 }
