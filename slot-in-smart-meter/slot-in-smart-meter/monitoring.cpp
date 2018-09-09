@@ -11,6 +11,7 @@ monitoring::monitoring(int pin)
 
 float monitoring::calculatePower()
 {
+	
 	int current = 0;
 	int maxCurrent = 0;
 	int minCurrent = 1000;
@@ -22,10 +23,14 @@ float monitoring::calculatePower()
 		else if (current <= minCurrent)
 			minCurrent = current;
 	}
-
+	//Serial.println(maxCurrent);
 	float midpoint = (minCurrent + maxCurrent) / 2.0;
+	//Serial.println(midpoint);
+	//midpoint = 565;
 	float maxAmplitude = (maxCurrent - midpoint);
-	float RMSCurrent = maxAmplitude * 0.7071 * scaleFactor;
+	if (maxAmplitude <= 10) maxAmplitude = 0;
+	//Serial.println(maxAmplitude);
+	float RMSCurrent = (maxAmplitude * 0.7071) / scaleFactor;
 	return voltage * RMSCurrent;
 
 }

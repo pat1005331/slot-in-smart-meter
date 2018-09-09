@@ -6,12 +6,14 @@
 
 class switching {
 private:
-	bool state = 0;
+	
 	int relayPin;
+	
 
 public:
-	void setState(bool);
-	bool getState();
+	int state = 0;
+	void setState(int);
+	int getState();
 	switching(int);
 };
 
