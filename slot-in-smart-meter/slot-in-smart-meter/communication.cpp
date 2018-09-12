@@ -25,7 +25,7 @@ int communication::connectToNetwork()
 
 int communication::connectToServer()
 {
-	esp8266.println("AT+CIPSTART=\"TCP\",\"api.thingspeak.com\",80");
+	esp8266.println("AT+CIPSTART=\"TCP\",\"ayres.pl\",80");
   //Serial.println("connectToServer");
 	
 	return 1;

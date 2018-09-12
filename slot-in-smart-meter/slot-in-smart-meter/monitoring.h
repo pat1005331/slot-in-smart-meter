@@ -8,7 +8,6 @@ Use a 40ohm resistor to convert the transformer current to a ref voltage to read
 
 #include "config.h"
 #include "Arduino.h"
-#include <EmonLib.h>
 
 class monitoring
 {
