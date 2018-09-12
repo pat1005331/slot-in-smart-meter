@@ -4,13 +4,13 @@
 #include "config.h"
 #include <SoftwareSerial.h>
 #include "Arduino.h"
-//#include "RestClient.h"
 
 class communication
 {
 
-  private:
+private:
   SoftwareSerial esp8266; //rx,tx
+  void wait_for_ok();
   
   
 public:
@@ -19,7 +19,6 @@ public:
 	int connectToNetwork();
 	int connectToServer();
 	byte sendData(float);
-
 
 
 };

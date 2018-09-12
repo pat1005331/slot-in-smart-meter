@@ -5,7 +5,7 @@
 #include "switching.h"
 #include "storage.h"
 
-communication comms;
+//communication comms;
 //switching the_switch(13);	//connect relay to pin A1
 monitoring monitor(A0);
 
@@ -16,8 +16,9 @@ const long interval = 1000;
 
 
 void setup() {
-	Serial.begin(115200);
-	comms.connectToNetwork();
+	Serial.begin(9600);
+  //Serial.println("Hello");
+	//comms.connectToNetwork();
 	digitalWrite(relayPin, HIGH);
 }
 
@@ -35,10 +36,12 @@ void loop() {
 	if (currentMillis - previousMillis >= interval) {
 		previousMillis = currentMillis;
 
-		comms.connectToServer();
-		comms.sendData(90);
-		inputCommand = comms.sendData(monitor.calculatePower());
+		//comms.connectToServer();
+		//comms.sendData(90);
 
+    // print the instentanous power draw in watts to serial
+    Serial.println(monitor.calculatePower());
+    inputCommand = 0;
 		//Set the state of the switch based on the command
 		if (inputCommand == 49) {
 			digitalWrite(relayPin, HIGH);
